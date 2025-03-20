@@ -11,7 +11,7 @@ load_dotenv()
 EMAIL = os.getenv("EMAIL")
 PASSWORD = os.getenv("PASSWORD")
 MAILBOX = os.getenv("MAILBOX")
-BATCHSIZE = int(os.getenv("BATCHSIZE"))nano .i
+BATCHSIZE = int(os.getenv("BATCHSIZE"))
 
 
 

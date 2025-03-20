@@ -18,5 +18,7 @@ This tool will connect to an IMAP server and check all the DKIM-Signature header
 ```bash
 python3 find_vulnerable_senders.py
 ```
+<img width="682" alt="Screenshot 2025-03-20 124757" src="https://github.com/user-attachments/assets/b8b17173-66a4-43cd-a50c-7f3a5c91c27d" />
+
 
 

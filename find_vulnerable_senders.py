@@ -61,21 +61,25 @@ try:
                 # Parse email content
                 msg = email.message_from_bytes(message[1])
                 ## Check if there is a DKIM-Signature header
-                if("dkim-signature" in msg):
+                dkim_signatures = msg.get_all("Dkim-Signature", [])
+
+                if dkim_signatures:
                     # Loop through each DKIM-Signature
-                    signature, encoding = decode_header(msg["Dkim-Signature"])[0]
-                    if not encoding:
-                        encoding: 'ISO-8859-1'
-                        
-                    if signature:
-                            signature = signature.replace('\n', ' ').replace('\r', '')
+                    for signature in dkim_signatures:
+                        # Loop through each DKIM-Signature
+                        signature, encoding = decode_header(signature)[0]
+                        if not encoding:
+                            encoding: 'ISO-8859-1'
+                            
+                        if signature:
+                                signature = signature.replace('\n', ' ').replace('\r', '')
 
-                            sender = msg.get("From")
-                            dkim_signature_fields = extract_h_field(signature)
+                                sender = msg.get("From")
+                                dkim_signature_fields = extract_h_field(signature)
 
-                            ## Check if the Subject or To headers are not signed
-                            if ('subject' not in dkim_signature_fields):
-                                print(f"Email from {sender} | DKIM-Signature: {' '.join(dkim_signature_fields)}")
+                                ## Check if the Subject or To headers are not signed
+                                if ('subject' not in dkim_signature_fields):
+                                    print(f"Email from {sender} | DKIM-Signature: {' '.join(dkim_signature_fields)}")
 
     mail.logout()
 

@@ -1,5 +1,5 @@
 # Partial-DKIM replay attacks detector
-Detect email senders that do not correctly sign the "Subject" header in the DKIM-Signature header. DKIM-Signed emails without the subjects are vulnerable to DKIM-replay attacks with a crafted Subject (especially if they do not sign the "To" header neither).
+Detect email senders that do not correctly sign the "Subject" header in the DKIM-Signature header. DKIM-Signed emails are vulnerable to DKIM-replay attacks with a crafted Subject.
 
 This tool will connect to an IMAP server and check the DKIM-Signature headers of the emails. 
 
@@ -59,12 +59,13 @@ Hello this is is a legit email.
 
 **This email will correctly pass the DKIM (and therefore DMARC) checks on targetdomain.com, even if it has been tampered with.** 
 
-## Going further
+# Real-life exploitation
 If the `Content-Type` header is not signed, you can hide the original signed body entirely with
 `Content-Disposition: attachment;filename=ticket.jpg`.
 
 ![image](https://github.com/user-attachments/assets/7e306e26-d089-43a4-a255-5c7928a88ba7)
 
+Note: There is often a timestamp `t=` tag in the DKIM-Signature. Many web servers would not accept an email that was signed too long ago. 
 
 # Setup
 ## Requirements

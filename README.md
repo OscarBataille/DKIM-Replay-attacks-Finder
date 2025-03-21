@@ -59,6 +59,11 @@ Hello this is is a legit email.
 
 **This email will correctly pass the DKIM (and therefore DMARC) checks on targetdomain.com, even if it has been tampered with.** 
 
+## Going further
+If the `Content-Type` header is not signed, you can hide the original signed body entirely with
+`Content-Disposition: attachment;filename=ticket.jpg`.
+
+![image](https://github.com/user-attachments/assets/7e306e26-d089-43a4-a255-5c7928a88ba7)
 
 
 # Setup

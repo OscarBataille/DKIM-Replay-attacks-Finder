@@ -1,7 +1,7 @@
 # Partial-DKIM replay attacks detector
 Detect email senders that do not correctly sign the "Subject" header in the DKIM-Signature header. DKIM-Signed emails are vulnerable to DKIM-replay attacks with a crafted Subject.
 
-This tool will connect to an IMAP server and check the DKIM-Signature headers of the emails. 
+This tool connects to your IMAP (mail) server and checks the DKIM-Signature headers of the emails. 
 
 # Technical details
 An email server can sign outgoing emails with DKIM to prove their authenticity.  The process to sign an email (and verify its authenticity) is described in [RFC 6376](https://datatracker.ietf.org/doc/html/rfc6376)

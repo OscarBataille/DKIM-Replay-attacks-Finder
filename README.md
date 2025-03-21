@@ -1,4 +1,4 @@
-# Partial-DKIM replay attacks detector
+# RepAtt: Partial-DKIM replay attacks detector
 Detect email senders that do not correctly sign the "Subject" header in the DKIM-Signature header. DKIM-Signed emails are vulnerable to DKIM-replay attacks with a crafted Subject.
 
 This tool connects to your IMAP (mail) server and checks the DKIM-Signature headers of the emails. 
